@@ -16,6 +16,13 @@ export default [
 		},
 	},
 	{
+		settings: {
+			react: {
+				version: "detect",
+			},
+		},
+	},
+	{
 		// Override configuration for files in the @types directory
 		files: ["**/@types/**/*"],
 		rules: {

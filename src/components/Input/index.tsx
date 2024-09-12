@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
-import { TextInput, View } from "react-native";
+import { Platform, TextInput, TextInputProps, View } from "react-native";
 import classNames from "clsx";
+
+import { colors } from "@/global/styles/colors";
 
 type InputProps = Variant & {
 	children: ReactNode;
@@ -21,8 +23,16 @@ function Input({ children, variant }: InputProps) {
 	);
 }
 
-function Field() {
-	return <TextInput />;
+function Field({ ...rest }: TextInputProps) {
+	return (
+		<TextInput
+			className="flex-1 text-zinc-100 text-lg font-regular"
+			placeholderTextColor={colors.zinc[400]}
+			cursorColor={colors.zinc[100]}
+			selectionColor={Platform.OS === "ios" ? colors.zinc[100] : undefined}
+			{...rest}
+		/>
+	);
 }
 
 Input.Field = Field;

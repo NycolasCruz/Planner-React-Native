@@ -1,12 +1,9 @@
-import { ReactNode } from "react";
-import { Platform, TextInput, TextInputProps, View } from "react-native";
+import { Platform, TextInput, TextInputProps, View, ViewProps } from "react-native";
 import classNames from "clsx";
 
 import { colors } from "@/global/styles/colors";
 
-type InputProps = Variant & {
-	children: ReactNode;
-};
+type InputProps = ViewProps & Variant;
 
 function Input({ children, variant }: InputProps) {
 	return (
@@ -14,8 +11,8 @@ function Input({ children, variant }: InputProps) {
 			className={classNames(
 				"flex-row items-center w-full h-16 gap-2",
 				variant && "h-14 px-4 rounded-lg border border-zinc-800",
-				variant === "secondary" && "bg-zinc-950",
-				variant === "tertiary" && "bg-zinc-900"
+				variant === "primary" && "bg-zinc-950",
+				variant === "secondary" && "bg-zinc-900"
 			)}
 		>
 			{children}

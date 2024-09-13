@@ -3,6 +3,7 @@ import { Image, Text, View } from "react-native";
 import { MapPin, Calendar as CalendarIcon } from "lucide-react-native";
 
 import { Separator } from "@/components/Separator";
+import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 
 import logo from "@/assets/logo.png";
@@ -22,13 +23,16 @@ export default function App() {
 					<MapPin color={colors.zinc[400]} size={20} />
 					<Input.Field placeholder="Para onde?" />
 				</Input>
-
 				<Input>
 					<CalendarIcon color={colors.zinc[400]} size={20} />
 					<Input.Field placeholder="Para onde?" />
 				</Input>
 
-				<Separator />
+				<Separator>
+					<Button>
+						<Button.Title>Buscar</Button.Title>
+					</Button>
+				</Separator>
 			</View>
 		</View>
 	);

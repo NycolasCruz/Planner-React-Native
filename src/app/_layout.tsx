@@ -1,5 +1,7 @@
-import { StatusBar, View } from "react-native";
+import { View } from "react-native";
 
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
 import { Slot } from "expo-router";
 
 import { Loading } from "@/components/Loading";
@@ -25,8 +27,11 @@ export default function Layout() {
 
 	return (
 		<View className="flex-1 bg-zinc-950">
-			<StatusBar backgroundColor="transparent" barStyle="light-content" translucent />
-			<Slot />
+			{/* <StatusBar backgroundColor="transparent" barStyle="light-content" translucent /> */}
+
+			<GestureHandlerRootView>
+				<Slot />
+			</GestureHandlerRootView>
 		</View>
 	);
 }

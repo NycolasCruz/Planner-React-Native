@@ -1,3 +1,3 @@
 type Variant = {
-	variant?: "secondary" | "tertiary";
+	variant?: "primary" | "secondary";
 };

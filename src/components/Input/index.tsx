@@ -1,7 +1,7 @@
 import { Platform, TextInput, TextInputProps, View, ViewProps } from "react-native";
 import classNames from "clsx";
 
-import { colors } from "@/global/styles/colors";
+import { colors } from "@/global/colors";
 
 type InputProps = ViewProps & Variant;
 

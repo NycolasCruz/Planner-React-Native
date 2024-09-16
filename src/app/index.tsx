@@ -7,7 +7,7 @@ import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 
 import logo from "@/assets/logo.png";
-import { colors } from "@/global/styles/colors";
+import { colors } from "@/global/colors";
 
 export default function App() {
 	return (
@@ -30,7 +30,7 @@ export default function App() {
 
 				<Separator>
 					<Button>
-						<Button.Title>Buscar</Button.Title>
+						<Button.Title>Alterar local / data</Button.Title>
 					</Button>
 				</Separator>
 			</View>

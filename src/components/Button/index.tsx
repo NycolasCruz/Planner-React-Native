@@ -1,9 +1,10 @@
 import { createContext, useContext } from "react";
-import { Text, TextProps } from "react-native";
+import { ActivityIndicator, Text, TextProps } from "react-native";
 
 import { RectButton, BaseButtonProps } from "react-native-gesture-handler";
 
 import { globalStyles } from "@/global/globalStyles";
+import { colors } from "@/global/colors";
 import { styles } from "./styles";
 
 type ButtonProps = BaseButtonProps &
@@ -18,7 +19,9 @@ function Button({ variant, isLoading, children, ...rest }: ButtonProps) {
 
 	return (
 		<RectButton style={buttonStyles} {...rest} enabled={!isLoading}>
-			<ThemeContext.Provider value={{ variant }}>{children}</ThemeContext.Provider>
+			<ThemeContext.Provider value={{ variant }}>
+				{isLoading ? <ActivityIndicator color={colors.lime[950]} /> : children}
+			</ThemeContext.Provider>
 		</RectButton>
 	);
 }

@@ -2,10 +2,22 @@ import { Text, TextProps } from "react-native";
 
 import { RectButton, BaseButtonProps } from "react-native-gesture-handler";
 
-type ButtonProps = BaseButtonProps & {};
+import { globalStyles } from "@/global/globalStyles";
+import { styles } from "./styles";
 
-function Button({ children }: ButtonProps) {
-	return <RectButton>{children}</RectButton>;
+type ButtonProps = BaseButtonProps &
+	Variant & {
+		isLoading?: boolean;
+	};
+
+function Button({ variant, isLoading, children, ...rest }: ButtonProps) {
+	const buttonStyles = [styles.button, variant === "secondary" && globalStyles.bgZinc800];
+
+	return (
+		<RectButton style={buttonStyles} {...rest} enabled={!isLoading}>
+			{children}
+		</RectButton>
+	);
 }
 
 function Title({ children }: TextProps) {

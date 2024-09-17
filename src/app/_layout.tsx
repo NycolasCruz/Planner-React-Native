@@ -12,7 +12,7 @@ import {
 	Inter_500Medium,
 	Inter_600SemiBold,
 } from "@expo-google-fonts/inter";
-import "@/global/styles/global.css";
+import "@/global/global.css";
 
 export default function Layout() {
 	const [fontsLoaded] = useFonts({
@@ -27,7 +27,7 @@ export default function Layout() {
 
 	return (
 		<View className="flex-1 bg-zinc-950">
-			{/* <StatusBar backgroundColor="transparent" barStyle="light-content" translucent /> */}
+			<StatusBar backgroundColor="transparent" style="auto" translucent />
 
 			<GestureHandlerRootView>
 				<Slot />

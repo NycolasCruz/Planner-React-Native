@@ -1,4 +1,4 @@
-const ptBR = {
+export const ptBR = {
 	monthNames: [
 		"Janeiro",
 		"Fevereiro",
@@ -31,5 +31,3 @@ const ptBR = {
 	dayNamesShort: ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"],
 	today: "Hoje",
 };
-
-export { ptBR };

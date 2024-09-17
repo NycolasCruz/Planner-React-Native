@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { ActivityIndicator, Text, TextProps } from "react-native";
+import classNames from "clsx";
 
 import { RectButton, BaseButtonProps } from "react-native-gesture-handler";
 
@@ -12,13 +13,13 @@ type ButtonProps = BaseButtonProps &
 		isLoading?: boolean;
 	};
 
-const ThemeContext = createContext<Variant>({});
+const ThemeContext = createContext<Variant>({} as Variant);
 
 function Button({ variant, isLoading, children, ...rest }: ButtonProps) {
 	const buttonStyles = [styles.button, variant === "secondary" && globalStyles.bgZinc800];
 
 	return (
-		<RectButton style={buttonStyles} {...rest} enabled={!isLoading}>
+		<RectButton style={buttonStyles} enabled={!isLoading} {...rest}>
 			<ThemeContext.Provider value={{ variant }}>
 				{isLoading ? <ActivityIndicator color={colors.lime[950]} /> : children}
 			</ThemeContext.Provider>
@@ -29,7 +30,16 @@ function Button({ variant, isLoading, children, ...rest }: ButtonProps) {
 function Title({ children }: TextProps) {
 	const { variant } = useContext(ThemeContext);
 
-	return <Text>{children}</Text>;
+	return (
+		<Text
+			className={classNames(
+				"text-base font-semibold text-lime-950",
+				variant === "secondary" && "text-zinc-200"
+			)}
+		>
+			{children}
+		</Text>
+	);
 }
 
 Button.Title = Title;

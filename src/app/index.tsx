@@ -11,6 +11,7 @@ import { Input } from "@/components/Input";
 
 import background from "@/assets/background.png";
 import logo from "@/assets/logo.png";
+
 import { colors } from "@/global/colors";
 
 export default function App() {

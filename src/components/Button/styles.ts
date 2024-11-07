@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 
 import { colors } from "@/global/colors";
 
+// Property 'className' does not exist on RectButtonProps
+
 export const styles = StyleSheet.create({
 	button: {
 		height: 44,

@@ -4,6 +4,8 @@
 
 - React
 - TypeScript
+- TailwindCSS
+- NativeWind
 - Expo
 
 ## 🖥️ Sobre

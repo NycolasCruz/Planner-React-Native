@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Image, Text, View } from "react-native";
 
 import { MapPin, Calendar, Settings2, UserRoundPlus, ArrowRight } from "lucide-react-native";
+import Toast from "react-native-toast-message";
 
-import { StepForm } from "@/enums/StepForm";
+import { FormStep } from "@/enums/FormStep";
 
 import { Separator } from "@/components/Separator";
 import { Button } from "@/components/Button";
@@ -15,9 +16,21 @@ import logo from "@/assets/logo.png";
 import { colors } from "@/global/colors";
 
 export default function App() {
-	const [stepForm, setStepForm] = useState(StepForm.tripDetails);
+	const [stepForm, setStepForm] = useState(FormStep.tripDetails);
 
-	const isTripDetails = stepForm === StepForm.tripDetails;
+	const isTripDetails = stepForm === FormStep.tripDetails;
+
+	function handleCheck(step: FormStep) {
+		setStepForm(step);
+
+		if (step === FormStep.confirmTrip) {
+			Toast.show({
+				type: "success",
+				text1: "Viagem confirmada!",
+				text2: "Agora você pode convidar seus amigos para a viagem.",
+			});
+		}
+	}
 
 	return (
 		<View className="flex-1 items-center justify-center px-5">
@@ -40,10 +53,10 @@ export default function App() {
 					<Input.Field placeholder="Quando?" editable={isTripDetails} />
 				</Input>
 
-				{stepForm === StepForm.addEmail && (
+				{stepForm === FormStep.confirmTrip && (
 					<>
 						<Separator>
-							<Button variant="secondary" onPress={() => setStepForm(StepForm.tripDetails)}>
+							<Button variant="secondary" onPress={() => setStepForm(FormStep.tripDetails)}>
 								<Button.Title>Alterar local / data</Button.Title>
 								<Settings2 color={colors.zinc[200]} size={20} />
 							</Button>
@@ -56,7 +69,7 @@ export default function App() {
 					</>
 				)}
 
-				<Button onPress={() => setStepForm(StepForm.addEmail)}>
+				<Button onPress={() => handleCheck(FormStep.confirmTrip)}>
 					<Button.Title>{isTripDetails ? "Continuar" : "Confirmar Viagem"}</Button.Title>
 					<ArrowRight color={colors.lime[950]} size={20} />
 				</Button>

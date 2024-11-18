@@ -4,6 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Toast from "react-native-toast-message";
 import { StatusBar } from "expo-status-bar";
 import { Slot } from "expo-router";
 
@@ -44,6 +45,7 @@ export default function Layout() {
 			<StatusBar backgroundColor="transparent" style="auto" translucent />
 			<GestureHandlerRootView>
 				<Slot />
+				<Toast />
 			</GestureHandlerRootView>
 		</View>
 	);
